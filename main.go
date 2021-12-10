@@ -23,7 +23,7 @@ func main() {
 		defaultPath = ""
 		pathUsage = "path to file, prefixed with \"@\""
 		defaultNSplits = 100
-		nSplitsUsage = "number of splits"
+		nSplitsUsage = "number of rows to split file by"
 	)
 	
 	flag.StringVar(&binderPath, "filepath", defaultPath, pathUsage)
