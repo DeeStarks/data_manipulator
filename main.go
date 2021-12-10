@@ -60,8 +60,11 @@ func main() {
 			right = binderDF.Nrow() - 1
 		}
 		newDF := binderDF.Subset(makeRange(i, right))
-		
-		f, err := os.Create(fmt.Sprintf("file%d.csv", currentPage+1))
+		// Check if directory "chunks" exists and create it if not
+		if _, err := os.Stat("chunks"); os.IsNotExist(err) {
+			os.Mkdir("chunks", 0755)
+		}
+		f, err := os.Create(fmt.Sprintf("chunks/file%d.csv", currentPage+1))
 		if err != nil {
 			fmt.Println(err)
 			return
@@ -70,6 +73,6 @@ func main() {
 		newDF.WriteCSV(f)
 		currentPage++
 	}
-	fmt.Printf("Total number of files: %d\n", totalPages)
+	fmt.Printf("Total number of files: %d\n", currentPage)
 	fmt.Println("==========================================================")
 }
