@@ -40,7 +40,7 @@ func main() {
 	binderPath = binderPath[1:]
 	fmt.Println("==========================================================")
 	fmt.Println("Reading data from", binderPath)
-	fmt.Println("Number of splits:", nSplits)
+	fmt.Println("Number of rows per split:", nSplits)
 	fmt.Println("==========================================================")
 
 	df, err := os.Open(binderPath)
