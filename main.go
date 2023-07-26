@@ -1,9 +1,9 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"os"
-	"flag"
 
 	"github.com/go-gota/gota/dataframe"
 )
@@ -20,16 +20,16 @@ func main() {
 	var binderPath string
 	var nSplits int
 	const (
-		defaultPath = ""
-		pathUsage = "path to file, prefixed with \"@\""
+		defaultPath    = ""
+		pathUsage      = "path to file, prefixed with \"@\""
 		defaultNSplits = 100
-		nSplitsUsage = "number of rows to split file by"
+		nSplitsUsage   = "number of rows to split file by"
 	)
-	
+
 	flag.StringVar(&binderPath, "filepath", defaultPath, pathUsage)
 	flag.StringVar(&binderPath, "f", defaultPath, pathUsage+" (shorthand)")
-	flag.IntVar(&nSplits ,"splits", defaultNSplits, nSplitsUsage)
-	flag.IntVar(&nSplits ,"s", defaultNSplits, nSplitsUsage+" (shorthand)")
+	flag.IntVar(&nSplits, "splits", defaultNSplits, nSplitsUsage)
+	flag.IntVar(&nSplits, "s", defaultNSplits, nSplitsUsage+" (shorthand)")
 	flag.Parse()
 
 	if binderPath == "" {
